@@ -1,38 +1,40 @@
-# import string
-#
-#
-# def abbreviate(words):
-#     lista1 = []
-#     unir = ''
-#     recebe = words.replace('_', '')
-#     recebe1 = recebe.replace(' - ', ' ').replace('-', ' ')
-#     recebe3 = recebe1.split(' ')
-#     letras = list(string.ascii_uppercase) + list(string.ascii_lowercase)
-#     for i in recebe3:
-#         if i[0] in letras:
-#             lista1.append(i[0])
-#     retorna = unir.join(lista1).upper()
-#     print(recebe)
-#     return retorna
-
-
+# coding: utf-8
 import string
 import re
 
 
+# Usando regex
 def abbreviate(words):
-    lista1 = []
+    lista = []
+    alfabeto = list(string.ascii_uppercase) + list(string.ascii_lowercase)
     unir = ''
-    words_total = words.replace("'", '')
-    recebe = re.sub(r"\W+", ' ', words_total).replace('_', '').replace("'", '')
-    recebe_total = recebe.split(' ')
-    letras = list(string.ascii_uppercase) + list(string.ascii_lowercase)
-    for i in recebe_total:
-        if i[0] in letras:
-            lista1.append(i[0])
-    retorna = unir.join(lista1).upper()
-    print(recebe)
+    words_limpando = words.replace("'", '').replace('_', '')
+    recebendo_apenas_alfa_numerico = re.sub(r"\W+", ' ', words_limpando)
+    recebendo_fatiado = recebendo_apenas_alfa_numerico.split(' ')
+    for i in recebendo_fatiado:
+        lista.append(i[0])
+    retorna = unir.join(lista).upper()
     return retorna
+
+
+print(abbreviate("Casa's -  Blanca-Club unir _Not_"))
+
+
+# import string
+#
+#
+# # Sem regex
+# def abbreviate(words):
+#     lista = []
+#     unir = ''
+#     recebe_limpando = words.replace('_', '').replace(' - ', ' ').replace('-', ' ')
+#     recebe_fatiado = recebe_limpando.split(' ')
+#     letras = list(string.ascii_uppercase) + list(string.ascii_lowercase)
+#     for i in recebe_fatiado:
+#         if i[0] in letras:
+#             lista.append(i[0])
+#     retorna = unir.join(lista).upper()
+#     return retorna
 
 
 print(abbreviate("Casa's - Blanca-Club unir _Not_"))
