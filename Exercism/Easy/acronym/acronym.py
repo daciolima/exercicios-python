@@ -17,7 +17,7 @@ def abbreviate(words):
     return retorna
 
 
-print(abbreviate("Casa's -  Blanca-Club unir _Not_"))
+# print(abbreviate("Casa's -  Blanca-Club unir _Not_"))
 
 
 # import string
@@ -37,4 +37,4 @@ print(abbreviate("Casa's -  Blanca-Club unir _Not_"))
 #     return retorna
 
 
-print(abbreviate("Casa's - Blanca-Club unir _Not_"))
+# print(abbreviate("Casa's - Blanca-Club unir _Not_"))
